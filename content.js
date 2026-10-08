@@ -33,7 +33,7 @@ window.SITE_CONTENT = {
     // One line for the printable call card
     pitch: "One-to-one research support for postgraduate researchers, from the first “does this data even exist?” to the final reference check.",
     // Your live website address. Update this after you deploy (see README).
-    siteUrl: "https://redzuan-research.onrender.com"
+    siteUrl: "https://redzuan-research-support.onrender.com"
   },
 
   /* ---------- Stats strip (4 short facts) ---------- */

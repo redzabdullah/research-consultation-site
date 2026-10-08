@@ -116,16 +116,16 @@ never charges you.
 3. Connect the `research-consultation-site` repository. If it isn't listed,
    click **Configure GitHub account** and give Render access to it.
 4. Fill in:
-   - **Name:** `redzuan-research` (this becomes your web address)
+   - **Name:** `redzuan-research-support` (this becomes your web address)
    - **Branch:** `main`
    - **Build Command:** *leave empty*
    - **Publish Directory:** `.` (a single full stop)
 5. Click **Create Static Site**. Wait about a minute until it says **Live**.
-6. Your address appears at the top, like `https://redzuan-research.onrender.com`.
+6. Your address appears at the top, like `https://redzuan-research-support.onrender.com`.
 
 ### Step D: Point the QR code at your real address
 The QR code and link previews currently point to
-`https://redzuan-research.onrender.com`. **If Render gave you exactly that
+`https://redzuan-research-support.onrender.com`. **If Render gave you exactly that
 address, skip this step.** Otherwise, open the VS Code terminal
 (**Ctrl+`**) and run:
 
@@ -138,7 +138,7 @@ This updates the address in `content.js` and `index.html`, and creates a
 new `assets/qr-code.png` and `assets/og-image.png`.
 
 **No Python?** Update the address by hand instead:
-1. Replace every `redzuan-research.onrender.com` in `index.html` and
+1. Replace every `redzuan-research-support.onrender.com` in `index.html` and
    `content.js` with your address (**Ctrl+Shift+H** in VS Code does
    find-and-replace across files).
 2. Make a QR code: open your live site in Microsoft Edge or Chrome,
