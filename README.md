@@ -166,6 +166,19 @@ Press **Ctrl+P**, set paper size to **A6** (or print at "Actual size" on A4
 and trim), and switch on **Background graphics**. For your last
 orientation slide, take a screenshot of the card (**Windows+Shift+S**).
 
+### QR code for slides
+Two ready-made files sit in the `assets` folder. Each shows the QR code
+with your web address printed underneath:
+
+- `assets/qr-slide.png`: high resolution (1600 px wide). In PowerPoint,
+  **Insert → Pictures → This Device**.
+- `assets/qr-slide.svg`: stays sharp at any size, good for posters. Insert
+  it the same way. PowerPoint 365 supports SVG.
+
+For the QR code alone, without text, use `assets/qr-code.png`. All three
+are remade automatically when you run `tools/make_images.py` with a new
+address.
+
 ---
 
 ## 6. Things to keep in mind

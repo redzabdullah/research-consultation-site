@@ -10,7 +10,8 @@ What it does:
   1. Replaces the old site address with the new one in content.js and index.html
   2. Creates assets/qr-code.png pointing to the new address
   3. Creates assets/og-image.png (the preview card shown in WhatsApp/Teams)
-  4. Creates assets/apple-touch-icon.png (icon when saved to a phone home screen)
+  4. Creates assets/qr-slide.png and assets/qr-slide.svg (QR + address, for slides)
+  5. Creates assets/apple-touch-icon.png (icon when saved to a phone home screen)
 """
 import re
 import sys
@@ -68,6 +69,55 @@ def make_qr(url):
     img = img.resize((600, 600), Image.NEAREST)
     img.save(ASSETS / "qr-code.png", optimize=True)
     print("Created assets/qr-code.png")
+
+
+def make_slide_qr(url):
+    """High-resolution QR codes with the address underneath, for slides."""
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, border=0)
+    qr.add_data(url)
+    qr.make(fit=True)
+    matrix = qr.get_matrix()
+    n = len(matrix)
+    short = url.replace("https://", "").replace("http://", "").rstrip("/")
+    caption = "Scan for research consultations"
+
+    # PNG: 1600 px wide, white card
+    W, mod, pad = 1600, 1600 // (n + 8), None
+    pad = (W - mod * n) // 2
+    H = pad + mod * n + 330
+    img = Image.new("RGB", (W, H), "white")
+    d = ImageDraw.Draw(img)
+    for y, row in enumerate(matrix):
+        for x, on in enumerate(row):
+            if on:
+                d.rectangle([pad + x * mod, pad + y * mod, pad + (x + 1) * mod - 1, pad + (y + 1) * mod - 1], fill=INK)
+    f_cap = font(["georgia.ttf", "Georgia.ttf"], 74)
+    f_url = font(["seguisb.ttf", "segoeuib.ttf", "Arial Bold.ttf"], 60)
+    ty = pad + mod * n + 90
+    for text, fnt, colour, gap in ((caption, f_cap, INK, 110), (short, f_url, ACCENT, 0)):
+        w = d.textlength(text, font=fnt)
+        d.text(((W - w) / 2, ty), text, font=fnt, fill=colour)
+        ty += gap
+    img.save(ASSETS / "qr-slide.png", optimize=True)
+    print("Created assets/qr-slide.png")
+
+    # SVG: scales to any size without blurring
+    q = 4  # quiet zone in modules
+    vw = n + 2 * q
+    vh = vw + 9
+    path = "".join(f"M{x + q} {y + q}h1v1h-1z" for y, row in enumerate(matrix) for x, on in enumerate(row) if on)
+    ink = "#%02x%02x%02x" % INK
+    acc = "#%02x%02x%02x" % ACCENT
+    svg = (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {vw} {vh}" width="{vw * 20}" height="{vh * 20}">'
+        f'<rect width="{vw}" height="{vh}" fill="#ffffff"/>'
+        f'<path d="{path}" fill="{ink}" shape-rendering="crispEdges"/>'
+        f'<text x="{vw / 2}" y="{vw + 2.2}" text-anchor="middle" font-family="Georgia, serif" font-size="{vw / 21:.2f}" fill="{ink}">{caption}</text>'
+        f'<text x="{vw / 2}" y="{vw + 5.6}" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="600" font-size="{vw / 26:.2f}" fill="{acc}">{short}</text>'
+        "</svg>\n"
+    )
+    (ASSETS / "qr-slide.svg").write_text(svg, encoding="utf-8")
+    print("Created assets/qr-slide.svg")
 
 
 def wrap(draw, text, fnt, max_width):
@@ -134,6 +184,7 @@ def main():
     name = re.search(r'name:\s*"([^"]+)"', text).group(1)
     title = re.search(r'title:\s*"([^"]+)"', text).group(1)
     make_qr(url + "/")
+    make_slide_qr(url + "/")
     make_og(name, title)
     make_touch_icon()
     print("Done. QR code points to:", url + "/")
