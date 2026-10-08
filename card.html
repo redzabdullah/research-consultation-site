@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Call card · Research consultations</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Source+Sans+3:wght@400;600&display=swap">
+  <style>
+    /* A6 portrait card: 105mm x 148mm. Always printed in light colours. */
+    @page { size: 105mm 148mm; margin: 0; }
+
+    :root {
+      --bg: #f8f5ef; --ink: #1b2220; --ink-2: #3f4845; --muted: #5b6461;
+      --line: #e1d9cc; --accent: #0e5c57; --accent-soft: #e2eeeb;
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Source Sans 3", system-ui, "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      background: #d9d4cb;
+      font-family: var(--sans);
+      color: var(--ink);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .screen-note {
+      max-width: 105mm; margin: 16px auto 0; padding: 0 16px;
+      font-size: 14px; color: #3f4845; line-height: 1.5;
+    }
+    .screen-note button {
+      font: inherit; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+      border: 1.5px solid var(--accent); color: var(--accent); background: #fff; cursor: pointer;
+    }
+    .card {
+      width: 105mm; height: 148mm;
+      margin: 16px auto 32px;
+      padding: 9mm 8.5mm 7.5mm;
+      background: var(--bg);
+      border-top: 3mm solid var(--accent);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgb(0 0 0 / .18);
+    }
+    .eyebrow {
+      margin: 0; font-size: 7.5pt; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .name { margin: 3mm 0 0; font-family: var(--serif); font-weight: 600; font-size: 19pt; line-height: 1.1; }
+    .title { margin: 1mm 0 0; font-size: 9pt; color: var(--ink-2); line-height: 1.35; }
+    .pitch {
+      margin: 4mm 0 0; font-family: var(--serif); font-style: italic; font-weight: 500;
+      font-size: 11pt; line-height: 1.35; color: var(--ink);
+    }
+    .themes-h { margin: 6mm 0 2.5mm; font-size: 7pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .themes { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.8mm; counter-reset: t; }
+    .themes li {
+      counter-increment: t; position: relative; padding-left: 6mm;
+      font-size: 9.5pt; line-height: 1.3; color: var(--ink-2);
+    }
+    .themes li::before {
+      content: counter(t, decimal-leading-zero); position: absolute; left: 0;
+      font-family: var(--serif); font-style: italic; color: var(--accent);
+    }
+    .foot {
+      margin-top: auto; padding-top: 4mm; border-top: .3mm solid var(--line);
+      display: flex; align-items: center; gap: 4mm;
+    }
+    .qr { width: 27mm; height: 27mm; flex: none; background: #fff; padding: 1mm; border-radius: 1.5mm; }
+    .foot-text { font-size: 8pt; line-height: 1.35; color: var(--ink-2); min-width: 0; }
+    .scan { margin: 0 0 1mm; font-family: var(--serif); font-weight: 600; font-size: 11pt; color: var(--ink); line-height: 1.2; }
+    .url { margin: 1mm 0 0; font-weight: 600; color: var(--accent); word-break: break-all; }
+    .inst { margin: 1.5mm 0 0; color: var(--muted); font-size: 7pt; }
+
+    @media print {
+      body { background: #fff; }
+      .screen-note { display: none; }
+      .card { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-note">
+    <p>This is your printable call card (A6, 105 × 148 mm). Press <strong>Ctrl+P</strong>, choose paper size <strong>A6</strong> (or “Actual size” on A4), and switch on <strong>Background graphics</strong>. For a slide, take a screenshot of the card.</p>
+    <p><button type="button" onclick="window.print()">Print card</button></p>
+  </div>
+
+  <main class="card" aria-label="Call card">
+    <p class="eyebrow">Research consultations</p>
+    <h1 class="name" data-name>Redzuan Abdullah</h1>
+    <p class="title"><span data-title>Research Librarian, Business</span><br><span data-institution>SMU Libraries, Singapore Management University</span></p>
+    <p class="pitch" data-pitch>One-to-one research support for postgraduate researchers, from the first “does this data even exist?” to the final reference check.</p>
+
+    <h2 class="themes-h">Where I can help</h2>
+    <ol class="themes" id="themes"></ol>
+
+    <div class="foot">
+      <img class="qr" src="assets/qr-code.png" alt="QR code linking to the research consultations website" width="300" height="300">
+      <div class="foot-text">
+        <p class="scan">Scan for six real research journeys and booking</p>
+        <p class="url" data-url>redzuan-research.onrender.com</p>
+        <p class="inst" data-email-text>redzuana@smu.edu.sg</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="content.js"></script>
+  <script>
+    (function () {
+      var C = window.SITE_CONTENT;
+      if (!C) return;
+      var p = C.person;
+      function set(sel, text) {
+        document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; });
+      }
+      set("[data-name]", p.name);
+      set("[data-title]", p.title);
+      set("[data-institution]", p.institution);
+      set("[data-pitch]", p.pitch.replace(/\*/g, ""));
+      set("[data-url]", p.siteUrl.replace(/^https?:\/\//, "").replace(/\/$/, ""));
+      set("[data-email-text]", p.email);
+      document.getElementById("themes").innerHTML = C.themes.map(function (t) {
+        var li = document.createElement("li");
+        li.textContent = t.title;
+        return li.outerHTML;
+      }).join("");
+    })();
+  </script>
+</body>
+</html>
