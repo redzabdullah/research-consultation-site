@@ -20,8 +20,8 @@ window.SITE_CONTENT = {
   /* ---------- About you ---------- */
   person: {
     name: "Redzuan Abdullah",
-    title: "Research Librarian, Business",
-    titleInSentence: "Research Librarian for Business", // used in the hero sentence
+    title: "Senior Librarian, Research & Data",
+    titleInSentence: "Senior Librarian for Research & Data", // used in the hero sentence
     institution: "SMU Libraries, Singapore Management University",
     expertise: "Business & financial databases, research data and systematic searching.",
     bookingUrl: "https://researchguides.smu.edu.sg/prf.php?id=c960a95b-7bd7-11ed-9738-0ae0bf56cf20",
