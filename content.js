@@ -38,7 +38,7 @@ window.SITE_CONTENT = {
 
   /* ---------- Stats strip (4 short facts) ---------- */
   stats: [
-    { value: "6", label: "doctoral journeys featured" },
+    { value: "7", label: "doctoral journeys featured" },
     { value: "3+ years", label: "of continuous researcher support" },
     { value: "15+", label: "databases and research platforms" },
     { value: "Proposal → submission", label: "support at every stage" }
@@ -60,19 +60,19 @@ window.SITE_CONTENT = {
       title: "Finding the right data",
       description: "“Does the data exist, where is it, and which source fits my question?” I’ll help you scope feasibility early and choose the best source for each variable.",
       chips: ["WRDS", "CRSP", "Compustat", "BoardEx", "SDC M&A", "Bloomberg", "S&P Capital IQ", "Refinitiv (LSEG)", "Datastream", "FactSet", "USPTO"],
-      cases: ["01", "02", "03", "04", "05"]
+      cases: ["01", "02", "03", "04", "05", "07"]
     },
     {
       title: "Linking and cleaning across databases",
       description: "Different vendors, different identifiers, different “universes”. I help you merge sources reliably and explain why the numbers don’t match.",
       chips: ["CUSIP", "PCUSIP", "CIK", "ISIN", "Ticker histories", "Coverage checks"],
-      cases: ["01", "03", "04"]
+      cases: ["01", "03", "04", "07"]
     },
     {
       title: "Turning concepts into variables",
       description: "Translating the constructs in your proposal into measurable variables, and rebuilding measures when a platform changes underneath you.",
       chips: ["Operationalisation", "ESG disclosure", "Corporate events", "Diversification measures", "Instrumental variables"],
-      cases: ["01", "02", "05"]
+      cases: ["01", "02", "05", "07"]
     },
     {
       title: "Code-assisted research workflows",
@@ -90,16 +90,18 @@ window.SITE_CONTENT = {
       title: "Getting over the finish line",
       description: "Citation and formatting checks before submission, and practical help with specialist terminals and access issues.",
       chips: ["APA 7", "Tables & figures", "Investment Studio", "Terminal bookings"],
-      cases: ["03", "04"]
+      cases: ["03", "04", "07"]
     }
   ],
 
-  /* ---------- Six research journeys ----------
+  /* ---------- Seven research journeys ----------
      id        : the case number shown on the card ("01", "02"…)
      stages    : must match names in the "stages" list above
      tools     : database/tool names shown as chips (also searchable)
      did       : one line per bullet point
-     journey   : the steps of the small timeline                      */
+     journey   : the steps of the small timeline
+     quote     : optional; a short quote from the researcher, shown as
+                 a pull-quote. Leave the line out if there isn’t one.  */
   cases: [
     {
       id: "01",
@@ -222,6 +224,29 @@ window.SITE_CONTENT = {
       outcome: "A broader, better-documented search strategy, and a reusable toolkit for the systematic stages ahead.",
       journey: ["Request", "Strategy review", "Literature mapping", "Consultation", "Follow-up toolkit"],
       takeaway: "Keywords alone miss things. Combine subject headings, author terms and citation chaining."
+    },
+    {
+      id: "07",
+      title: "Mapping governance theory onto real database variables",
+      role: "DBA candidate",
+      field: "Corporate governance in an Asian market",
+      duration: "Early-stage data consultation",
+      stages: ["Finding data", "Linking & cleaning", "Research design", "Writing & completion"],
+      tools: ["LSEG Workspace", "LSEG ESG", "Bloomberg", "WRDS", "AI-assisted documentation review"],
+      challenge: "The study compared listed firms before and after a national governance reform, using a framework that separates governance “form” (the structures a firm has in place) from governance “substance” (how well those structures work in practice). The question was whether licensed commercial databases could measure both, and which source to trust for what.",
+      did: [
+        "Reviewed LSEG Workspace’s ESG and governance content in depth, using AI-assisted analysis of the vendor documentation, and built a custom spreadsheet of relevant variables.",
+        "Sorted the variables into the researcher’s own framework. “Form” covered measures such as board size, board independence, CEO–chair separation and committee existence. “Substance” covered measures such as audit committee expertise, pay linked to performance, board evaluations and auditor tenure.",
+        "Advised that structures can often be read straight from disclosures, while governance quality usually needs carefully chosen proxies or composite measures.",
+        "Compared LSEG, Bloomberg and WRDS, showing where each is strongest. For example, Bloomberg is strong for institutional and insider ownership and executive pay. We identified specific Bloomberg fields to extract at scale.",
+        "Planned how governance, ownership, financial and firm-level data could be linked into a longitudinal panel, including identifier matching and coverage gaps for the market studied.",
+        "Removed practical blockers: Mac access and Workspace Lite set-up, download and licensing limits, and arranging an extension of database access with library colleagues."
+      ],
+      outcome: "The researcher left with a variable map that matched their theoretical model, a clear multi-database plan, and continued access to keep exploring. They kept coming back for advice on database choices as the thesis developed.",
+      // Optional: a short quote from the researcher. Leave it out if there isn't one.
+      quote: "It is very useful in further thinking and understanding potential form and substance variables.",
+      journey: ["Feasibility check", "Variable mapping", "Measurement strategy", "Multi-database plan", "Panel design"],
+      takeaway: "Start from your theory, not the database. Sort the variables into your own framework and the gaps in your data become obvious."
     }
   ],
 

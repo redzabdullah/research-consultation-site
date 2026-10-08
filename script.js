@@ -108,6 +108,8 @@
         '<div class="detail__block"><h4 class="detail__h">What we did together</h4><ul class="detail__list">' +
           c.did.map(function (d) { return "<li>" + fmt(d) + "</li>"; }).join("") + "</ul></div>" +
         '<div class="detail__block"><h4 class="detail__h">The outcome</h4><p class="detail__outcome">' + fmt(c.outcome) + "</p></div>" +
+        (c.quote ? '<figure class="detail__block quote"><blockquote class="quote__text"><p>' + fmt(c.quote) +
+          '</p></blockquote><figcaption class="quote__by">The researcher, in their own words</figcaption></figure>' : "") +
         '<div class="detail__block"><h4 class="detail__h">Journey</h4><ol class="journey">' +
           c.journey.map(function (j) { return '<li class="journey__step">' + esc(j) + "</li>"; }).join("") + "</ol></div>" +
         '<div class="detail__block"><h4 class="detail__h">Tools and sources</h4>' + chips(c.tools, "detail__tools") + "</div>" +
@@ -122,7 +124,7 @@
   C.cases.forEach(function (c) {
     haystack[c.id] = plain([
       "case " + c.id, c.title, c.role, c.field, c.duration, c.stages.join(" "), c.tools.join(" "),
-      c.challenge, c.did.join(" "), c.outcome, c.journey.join(" "), c.takeaway
+      c.challenge, c.did.join(" "), c.outcome, c.quote || "", c.journey.join(" "), c.takeaway
     ].join(" ")).toLowerCase();
   });
 

@@ -53,11 +53,18 @@ Rules that keep the file working:
 probably missing. Press **Ctrl+Z** until it works again. In VS Code,
 syntax mistakes are underlined in red.
 
-### Add a seventh case
-Copy a whole case block, from its `{` to the matching `},`, paste it after
-the last case, and give it `id: "07"`. To link it from a theme card, add
-`"07"` to that theme's `cases: [...]` list. Also update the "6 doctoral
-journeys" stat and the section text in `index.html` if you want.
+### Add another case
+There are seven cases. To add an eighth, copy a whole case block, from its
+`{` to the matching `},`, paste it after the last case, and give it
+`id: "08"`. To link it from a theme card, add `"08"` to that theme's
+`cases: [...]` list. Also update the "7 doctoral journeys" stat, the
+"seven" wording in `index.html` (hero, section heading, descriptions) and
+`card.html`.
+
+### Add a researcher quote (optional)
+A case can have a `quote:` line with the researcher's own words. It shows
+as a quiet pull-quote under "The outcome". Cases without one simply skip it.
+See case 07 for an example.
 
 ### Add your photo
 Save a square photo (about 300 × 300 pixels, **under 150 KB**) as

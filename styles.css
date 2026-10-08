@@ -541,6 +541,20 @@ a:hover { color: var(--accent-strong); }
 .detail__outcome { font-family: var(--serif); font-size: 1.15rem; line-height: 1.5; color: var(--ink); }
 .detail__tools { margin-top: 0.25rem; }
 
+/* Optional researcher quote: a quiet pull-quote, lighter than the takeaway */
+.quote { margin-left: 0; margin-right: 0; margin-bottom: 0; padding-left: 1.1rem; border-left: 1px solid var(--line); }
+.quote__text { margin: 0; }
+.quote__text p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.quote__text p::before { content: "“"; }
+.quote__text p::after { content: "”"; }
+.quote__by { margin-top: 0.35rem; font-size: 0.8125rem; color: var(--muted); }
+
 /* Journey timeline: vertical on phones, horizontal on wider cards */
 .journey { display: grid; gap: 0; counter-reset: step; }
 .journey__step {
