@@ -54,7 +54,7 @@ window.SITE_CONTENT = {
     "Writing & completion"
   ],
 
-  /* ---------- Where I can help (7 themes) ---------- */
+  /* ---------- Where I can help (6 themes) ---------- */
   themes: [
     {
       title: "Finding the right data",
@@ -91,12 +91,6 @@ window.SITE_CONTENT = {
       description: "Pulling data through APIs and Python, and using AI connectors (MCP) to build your own research agents, with the guardrails that keep every number traceable.",
       chips: ["Python", "APIs", "MCP", "OpenAlex", "arXiv", "SEC EDGAR", "AI agents", "Source audits"],
       cases: ["03", "05", "06", "07", "08", "09"]
-    },
-    {
-      title: "Getting over the finish line",
-      description: "Citation and formatting checks before submission, and practical help with specialist terminals and access issues.",
-      chips: ["APA 7", "Tables & figures", "Investment Studio", "Terminal bookings"],
-      cases: ["03", "04", "07"]
     }
   ],
 

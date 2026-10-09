@@ -6,7 +6,7 @@ open.
 
 | File | What it's for | Edit it? |
 |---|---|---|
-| `content.js` | **All the words**: your details, themes, cases, steps, checklist | **Yes, this is the one** |
+| `content.js` | **All the words**: your details, the six themes, cases, steps, checklist | **Yes, this is the one** |
 | `index.html` | Page layout and hero/closing text | Rarely |
 | `styles.css` | Colours, fonts, spacing | Rarely |
 | `script.js` | Makes filters, search and buttons work | No |
