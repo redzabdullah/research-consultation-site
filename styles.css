@@ -54,7 +54,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 4.5rem; /* sticky header + a small gap; jump targets land just below it */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -168,8 +168,18 @@ a:hover { color: var(--accent-strong); }
 }
 .topbar__book:hover { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
+/* Phones: one short link to the other page, next to "Book" */
+.topbar__nav a.topbar__mobile { display: inline; }
+@media (max-width: 767px) {
+  .topbar__nav { gap: 1rem; }
+}
+@media (max-width: 399px) {
+  .topbar__org { display: none; }
+}
+
 @media (min-width: 768px) {
   .topbar__nav a:not(.topbar__book) { display: inline; }
+  .topbar__nav a.topbar__mobile { display: none; }
 }
 
 /* ---------- Buttons ---------- */
@@ -456,7 +466,6 @@ a:hover { color: var(--accent-strong); }
   align-items: start;
 }
 .case {
-  scroll-margin-top: 5rem;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
