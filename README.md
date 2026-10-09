@@ -76,6 +76,11 @@ Leave any of these out and the case simply doesn't show them.
   `didLabel: "What I built",`.
 - `demo:` shows a box with this text and a "Book a demo" button (it uses
   your `bookingUrl`). It appears after the quote, if there is one.
+- `code:` a GitHub link, for example
+  `code: "https://github.com/redzabdullah/ICPSR-API",`. It adds a
+  "See the code on GitHub" button next to "Book a demo", with a short note
+  that the code comes without the live data keys. It only shows on a case
+  that also has `demo:`. Searching "github" or "code" finds these cases.
 
 The AI connectors and agents in cases 08 and 09 also have their own page,
 `ai.html`. If you add a case about them, link it from there too.

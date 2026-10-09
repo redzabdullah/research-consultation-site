@@ -789,3 +789,5 @@ a:hover { color: var(--accent-strong); }
 }
 .demo { display: grid; gap: 0.85rem; justify-items: start; padding: 1rem 1.1rem; border-radius: var(--radius-sm); background: var(--accent-soft); }
 .demo__text { color: var(--ink); }
+.demo__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.demo__note { margin-top: -0.35rem; font-size: 0.8125rem; color: var(--muted); }

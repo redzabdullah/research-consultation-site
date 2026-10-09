@@ -98,6 +98,8 @@ window.SITE_CONTENT = {
      own       : optional; true marks a case from my own practice
      didLabel  : optional; replaces the heading “What we did together”
      demo      : optional; shows a “Book a demo” box with this text
+     code      : optional; a GitHub link, shown as “See the code on GitHub”
+                 next to “Book a demo” (needs demo). Also searchable.
      id        : the case number shown on the card ("01", "02"…)
      stages    : must match names in the "stages" list above
      tools     : database/tool names shown as chips (also searchable)
@@ -272,6 +274,7 @@ window.SITE_CONTENT = {
       ],
       outcome: "A fast, documented scoping layer. In minutes I can compare companies, pull recent accounts and see the relevant literature side by side, then decide which licensed database the real study needs. It doesn’t replace WRDS, Bloomberg, LSEG, Capital IQ or Scopus; it tells me which one to open.",
       demo: "The open APIs behind it have tight daily limits, so it isn’t open for public use. Book a session and I’ll demo it live, or help you plan an agent of your own.",
+      code: "https://github.com/redzabdullah/Finance-Open-Resource",
       journey: ["Repetitive scoping work", "Agent design", "Open data + literature", "Source audit & limits", "Tested & demoed"],
       takeaway: "Sometimes discovery means building your own tool. Let AI do the fetching, but make it show its evidence."
     },
@@ -297,6 +300,7 @@ window.SITE_CONTENT = {
       outcome: "The researcher confirmed the dataset was exactly the kind of data they were after and asked for more like it. That request is why the assistant exists: it now produces a defensible shortlist of candidate studies in minutes, while the final check still happens where it should, in ICPSR’s codebooks and documentation.",
       quote: "Thank you for this information. That’s very helpful. We are looking for data along these lines.",
       demo: "Like Case 08, it isn’t open for public use. Book a session and I’ll run it live on your topic, then we’ll check the shortlist in ICPSR’s documentation together.",
+      code: "https://github.com/redzabdullah/ICPSR-API",
       journey: ["Faculty data request", "Repository scan", "Question-level search", "Dataset found", "Assistant built"],
       takeaway: "When the same search keeps coming back, turn it into a tool. But a shortlist is only a start: the codebook has the final word."
     }

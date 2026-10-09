@@ -110,7 +110,12 @@
         '<div class="detail__block"><h4 class="detail__h">The outcome</h4><p class="detail__outcome">' + fmt(c.outcome) + "</p></div>" +
         (c.quote ? '<figure class="detail__block quote"><blockquote class="quote__text"><p>' + fmt(c.quote) +
           '</p></blockquote><figcaption class="quote__by">The researcher, in their own words</figcaption></figure>' : "") +
-        (c.demo ? '<div class="detail__block demo"><p class="demo__text">' + fmt(c.demo) + '</p><a class="btn btn--primary btn--small" href="' + esc(C.person.bookingUrl) + '" target="_blank" rel="noopener">Book a demo<span class="sr-only"> (opens in a new tab)</span></a></div>' : "") +
+        (c.demo ? '<div class="detail__block demo"><p class="demo__text">' + fmt(c.demo) + '</p>' +
+          '<div class="demo__actions"><a class="btn btn--primary btn--small" href="' + esc(C.person.bookingUrl) + '" target="_blank" rel="noopener">Book a demo<span class="sr-only"> (opens in a new tab)</span></a>' +
+          (c.code ? '<a class="btn btn--ghost btn--small" href="' + esc(c.code) + '" target="_blank" rel="noopener">See the code on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>' : "") +
+          "</div>" +
+          (c.code ? '<p class="demo__note">For the technically curious: the source code, without the live data keys.</p>' : "") +
+          "</div>" : "") +
         '<div class="detail__block"><h4 class="detail__h">Journey</h4><ol class="journey">' +
           c.journey.map(function (j) { return '<li class="journey__step">' + esc(j) + "</li>"; }).join("") + "</ol></div>" +
         '<div class="detail__block"><h4 class="detail__h">Tools and sources</h4>' + chips(c.tools, "detail__tools") + "</div>" +
@@ -125,7 +130,8 @@
   C.cases.forEach(function (c) {
     haystack[c.id] = plain([
       "case " + c.id, c.title, c.role, c.field, c.duration, c.stages.join(" "), c.tools.join(" "),
-      c.challenge, c.did.join(" "), c.outcome, c.quote || "", c.journey.join(" "), c.takeaway
+      c.challenge, c.did.join(" "), c.outcome, c.quote || "", c.journey.join(" "), c.takeaway,
+      c.code ? "github code " + c.code : ""
     ].join(" ")).toLowerCase();
   });
 
