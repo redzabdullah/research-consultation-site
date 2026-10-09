@@ -26,6 +26,8 @@ window.SITE_CONTENT = {
     expertise: "Business & financial databases, research data and systematic searching.",
     bookingUrl: "https://researchguides.smu.edu.sg/prf.php?id=c960a95b-7bd7-11ed-9738-0ae0bf56cf20",
     email: "redzuana@smu.edu.sg",
+    // Your LinkedIn profile, linked in the closing section and footer
+    linkedin: "https://www.linkedin.com/in/redzuan-abdullah-b723809b/",
     // Leave empty "" to show your initials. To use a photo, put it in the
     // assets folder and write its name, e.g. "assets/photo.jpg"
     photo: "",

@@ -90,9 +90,16 @@ Save a square photo (about 300 × 300 pixels, **under 150 KB**) as
 `assets/photo.jpg`. Then in `content.js` set `photo: "assets/photo.jpg",`.
 For a free way to shrink a photo, use https://squoosh.app.
 
-### Change your booking link or email
-Edit `bookingUrl` or `email` in `content.js`. Every button updates
-automatically.
+### Change your booking link, email or LinkedIn
+Edit `bookingUrl`, `email` or `linkedin` in `content.js`. Every button and
+link on the home page updates automatically. `linkedin` is your profile
+address; it's linked next to your email in the closing section and in the
+footer.
+
+`guide.html` and `ai.html` don't read `content.js`, so their booking
+buttons and footer LinkedIn link have the address written in directly.
+If you change one, use **Ctrl+Shift+H** in VS Code to replace it in every
+file at once.
 
 ---
 

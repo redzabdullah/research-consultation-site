@@ -726,6 +726,8 @@ a:hover { color: var(--accent-strong); }
 .footer { padding: 2.5rem 0 6rem; font-size: 0.9375rem; color: var(--muted); }
 .footer__note { max-width: 44rem; font-style: italic; color: var(--ink-2); }
 .footer__meta { margin-top: 0.75rem; }
+.footer__meta a { color: inherit; }
+.footer__meta a:hover { color: var(--accent); }
 @media (min-width: 768px) { .footer { padding-bottom: 2.5rem; } }
 
 /* ---------- Sticky mobile booking button ---------- */

@@ -39,6 +39,7 @@
   $$("[data-book]").forEach(function (a) { a.href = p.bookingUrl; });
   $$("[data-email]").forEach(function (a) { a.href = "mailto:" + p.email; });
   $$("[data-email-text]").forEach(function (a) { a.textContent = p.email; });
+  $$("[data-linkedin]").forEach(function (a) { if (p.linkedin) a.href = p.linkedin; });
   $$("[data-name]").forEach(function (el) { el.textContent = p.name; });
   $$("[data-title]").forEach(function (el) { el.textContent = p.title; });
   $$("[data-title-sentence]").forEach(function (el) { el.textContent = p.titleInSentence || p.title; });
