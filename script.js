@@ -241,7 +241,7 @@
     var link = e.target.closest("[data-case-link]");
     if (!link) return;
     e.preventDefault();
-    goToCase(link.dataset.caseLink, false);
+    goToCase(link.dataset.caseLink, true);
   });
 
   /* ---------- Gentle reveal on scroll ---------- */

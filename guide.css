@@ -53,7 +53,6 @@
   align-items: stretch;
 }
 .gstep {
-  scroll-margin-top: 5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
