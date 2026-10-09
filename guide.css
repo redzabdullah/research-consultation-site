@@ -1,0 +1,271 @@
+/* =====================================================================
+   Data Discovery Guide (guide.html). Loads after styles.css and reuses
+   its tokens. One extra token pair, --warn / --warn-soft, is used for
+   the "watch out" callouts.
+   ===================================================================== */
+
+:root {
+  --warn: #8a5a0b;
+  --warn-soft: #f6ead0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --warn: #e7bd6f;
+    --warn-soft: #33291a;
+  }
+}
+
+/* ---------- Active nav link ---------- */
+.topbar__nav a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+
+/* ---------- Guide hero ---------- */
+.ghero { padding: 3rem 0 2.5rem; }
+.ghero__title { font-size: clamp(2rem, 6.4vw, 3.4rem); font-weight: 500; max-width: 22ch; }
+.ghero__title em { color: var(--accent); }
+.ghero__lede { margin-top: 1.25rem; max-width: 40rem; font-size: 1.125rem; color: var(--ink-2); }
+.ghero__by { margin-top: 1rem; font-size: 0.9375rem; color: var(--muted); }
+.ghero__by strong { color: var(--ink-2); font-weight: 600; }
+
+.jump { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); max-width: 52rem; }
+.jump__label { font-size: 0.875rem; font-weight: 600; color: var(--ink-2); margin-bottom: 0.6rem; }
+.jump__list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.jump__list a {
+  display: inline-grid; place-items: center;
+  min-width: 2.5rem; height: 2.5rem; padding: 0 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-family: var(--serif); font-weight: 600; font-size: 1rem;
+  text-decoration: none;
+}
+.jump__list a:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (min-width: 768px) {
+  .ghero { padding: 4.5rem 0 3.5rem; }
+  .ghero__lede { font-size: 1.25rem; }
+}
+
+/* ---------- Tile grid ---------- */
+.gsteps {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+.gstep {
+  scroll-margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.gstep--wide { grid-column: 1 / -1; }
+
+.gstep__head { display: flex; align-items: flex-start; gap: 0.9rem; }
+.gstep__num {
+  flex: none;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 0.9;
+  color: var(--accent);
+  min-width: 2.6rem;
+}
+.gstep__title { font-size: 1.35rem; font-weight: 600; line-height: 1.2; flex: 1; padding-top: 0.15rem; }
+.gstep__icon {
+  flex: none;
+  width: 2.75rem; height: 2.75rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.gstep__icon svg { width: 1.45rem; height: 1.45rem; }
+
+.gstep__lead { color: var(--ink-2); }
+.gstep__lead strong { color: var(--ink); font-weight: 600; }
+.gstep__sub {
+  font-size: 0.8125rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Bulleted lists inside tiles */
+.glist { display: grid; gap: 0.45rem; }
+.glist li { position: relative; padding-left: 1.25rem; color: var(--ink-2); line-height: 1.45; }
+.glist li::before {
+  content: ""; position: absolute; left: 0.15rem; top: 0.6em;
+  width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--accent);
+}
+.glist small { display: block; color: var(--muted); font-size: 0.875rem; }
+
+.glist--check li { padding-left: 1.6rem; }
+.glist--check li::before {
+  left: 0; top: 0.28em; width: 1.05rem; height: 1.05rem;
+  background: var(--accent-soft); border-radius: 50%;
+}
+.glist--check li::after {
+  content: ""; position: absolute; left: 0.37rem; top: 0.45em;
+  width: 0.3rem; height: 0.55rem;
+  border: solid var(--accent); border-width: 0 1.75px 1.75px 0;
+  transform: rotate(45deg);
+}
+
+/* Callouts: reuse the case takeaway look */
+.gcallout {
+  margin-top: auto;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--serif);
+  font-size: 1.075rem;
+  line-height: 1.4;
+}
+.gcallout--warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+.gstep__foot {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem; color: var(--muted);
+}
+.gstep__callout-wrap { margin-top: auto; display: grid; gap: 1rem; }
+
+/* ---------- Tables ---------- */
+.gtable-wrap { border: 1px solid var(--line); border-radius: var(--radius-sm); overflow: hidden; }
+.gtable { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.4; }
+.gtable th {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.gtable td { padding: 0.55rem 0.75rem; border-top: 1px solid var(--line); color: var(--ink-2); vertical-align: top; }
+.gtable td:first-child { color: var(--ink); font-weight: 600; }
+.gtable__note { margin-top: 0.55rem; font-size: 0.875rem; color: var(--muted); font-style: italic; }
+
+/* Step 10 table stacks into labelled rows on small screens */
+@media (max-width: 759px) {
+  .gtable--stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .gtable--stack, .gtable--stack tbody, .gtable--stack tr, .gtable--stack td { display: block; width: 100%; }
+  .gtable--stack tr { padding: 0.75rem 0.9rem; border-top: 1px solid var(--line); }
+  .gtable--stack tr:first-child { border-top: 0; }
+  .gtable--stack td { border: 0; padding: 0.15rem 0; display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.75rem; }
+  .gtable--stack td::before {
+    content: attr(data-label);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--muted); padding-top: 0.15rem;
+  }
+  .gtable--stack td:first-child { font-family: var(--serif); font-size: 1.1rem; display: block; margin-bottom: 0.25rem; }
+  .gtable--stack td:first-child::before { display: none; }
+}
+
+/* ---------- Step 4: vague vs researchable ---------- */
+.gcompare { display: grid; gap: 0.75rem; }
+.gbox { padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--bg); }
+.gbox__label { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.gbox__label small { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--muted); }
+.gbox__quote { font-family: var(--serif); font-style: italic; font-size: 1.075rem; line-height: 1.4; color: var(--ink); }
+.gbox--vague .gbox__label { color: var(--warn); }
+.gbox--vague { border-color: color-mix(in srgb, var(--warn) 25%, var(--line)); }
+.gbox--good .gbox__label { color: var(--accent); }
+.gbox--good { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); background: color-mix(in srgb, var(--accent-soft) 45%, var(--bg)); }
+.gx { display: grid; gap: 0.3rem; margin-top: 0.6rem; }
+.gx li { position: relative; padding-left: 1.4rem; font-size: 0.9375rem; color: var(--ink-2); }
+.gx li::before, .gx li::after {
+  content: ""; position: absolute; left: 0.2rem; top: 0.72em;
+  width: 0.7rem; height: 1.75px; background: var(--warn); border-radius: 2px;
+}
+.gx li::before { transform: rotate(45deg); }
+.gx li::after { transform: rotate(-45deg); }
+
+/* ---------- Step 5: identifier chips ---------- */
+.gids { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.gids .chip {
+  font-size: 0.875rem; font-weight: 600; letter-spacing: 0.03em;
+  padding: 0.25rem 0.8rem;
+  background: var(--surface); color: var(--accent-strong);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+/* ---------- Step 6: grain ---------- */
+.ggrain { display: grid; gap: 0.5rem; }
+.ggrain li {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+  font-size: 0.9375rem; color: var(--ink-2);
+}
+.ggrain .chip { background: var(--bg); }
+.ggrain__vs { font-size: 0.8125rem; color: var(--muted); font-style: italic; }
+
+/* ---------- Step 7: pie ---------- */
+.gpie { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.gpie__chart {
+  flex: none;
+  width: 7.5rem; height: 7.5rem; border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0 70%,
+    var(--warn) 70% 90%,
+    color-mix(in srgb, var(--accent) 30%, var(--surface-2)) 90% 100%
+  );
+  position: relative;
+}
+.gpie__chart::after {
+  content: ""; position: absolute; inset: 1.6rem; border-radius: 50%; background: var(--surface);
+}
+.gpie__legend { display: grid; gap: 0.35rem; font-size: 0.9375rem; color: var(--ink-2); }
+.gpie__legend li { display: flex; align-items: baseline; gap: 0.5rem; }
+.gpie__legend b { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); min-width: 2.6rem; }
+.gpie__sw { width: 0.7rem; height: 0.7rem; border-radius: 3px; flex: none; transform: translateY(-1px); }
+.gpie__caption { font-size: 0.8125rem; color: var(--muted); font-style: italic; margin-top: 0.4rem; }
+
+/* ---------- Step 10 layout ---------- */
+.gmap { display: grid; gap: 1.25rem; }
+.gwhy { padding: 1.1rem 1.2rem; border-radius: var(--radius-sm); background: var(--accent-soft); }
+.gwhy__title { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--accent-strong); margin-bottom: 0.5rem; }
+.gwhy .glist li { color: var(--ink); }
+@media (min-width: 1000px) {
+  .gmap { grid-template-columns: 1fr 15rem; align-items: start; }
+}
+
+/* ---------- Grid breakpoints ---------- */
+@media (min-width: 768px) {
+  .gsteps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .gstep { padding: 1.75rem; }
+}
+@media (min-width: 1100px) {
+  .gsteps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- Final principle ---------- */
+.principle { background: var(--accent); color: var(--on-accent); padding: 4rem 0; }
+.principle .eyebrow { color: var(--on-accent); opacity: 0.8; }
+.principle__title { font-size: clamp(1.6rem, 4.6vw, 2.5rem); font-weight: 500; max-width: 30ch; }
+.principle__cols { display: grid; gap: 1.25rem; margin-top: 2.25rem; counter-reset: p; }
+.principle__col { padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 0.28); }
+.principle__col h3 { font-size: 1.25rem; font-weight: 600; }
+.principle__col p { margin-top: 0.35rem; opacity: 0.9; }
+.principle__close { margin-top: 2.25rem; font-family: var(--serif); font-style: italic; font-size: 1.25rem; opacity: 0.95; }
+.principle .actions { margin-top: 1.75rem; }
+.principle :focus-visible { outline-color: var(--on-accent); }
+@media (prefers-color-scheme: dark) {
+  .principle__col { border-top-color: rgb(0 0 0 / 0.25); }
+}
+@media (min-width: 768px) {
+  .principle { padding: 5.5rem 0; }
+  .principle__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+}
+
+/* No printing of this page */
+@media print {
+  body > * { display: none !important; }
+  body::after { content: "This guide is available online at redzuan-research-support.onrender.com/guide.html"; display: block; padding: 2rem; font: 14pt sans-serif; }
+}
