@@ -56,13 +56,13 @@ probably missing. Press **Ctrl+Z** until it works again. In VS Code,
 syntax mistakes are underlined in red.
 
 ### Add another case
-There are nine cases: seven researcher journeys (01–07) and two from my
-own practice (08–09). To add a tenth, copy a whole case block, from its
-`{` to the matching `},`, paste it after the last case, and give it
-`id: "10"`. To link it from a theme card, add `"10"` to that theme's
+There are ten cases: eight researcher journeys (01–08) and two from my
+own practice (09–10). To add an eleventh, copy a whole case block, from
+its `{` to the matching `},`, paste it after the last case, and give it
+`id: "11"`. To link it from a theme card, add `"11"` to that theme's
 `cases: [...]` list. Also check the wording that counts cases: the
-"7 doctoral journeys" stat in `content.js`, and in `index.html` the hero
-sentence, the "Nine research journeys" heading, and the meta, OG and
+"8 researchers supported" stat in `content.js`, and in `index.html` the
+hero sentence, the "Ten research journeys" heading, and the meta, OG and
 Twitter descriptions.
 
 ### Optional case fields
@@ -71,7 +71,7 @@ Leave any of these out and the case simply doesn't show them.
 - `quote:` the researcher's own words, shown as a quiet pull-quote under
   "The outcome". See case 07.
 - `own: true,` marks a case from your own practice. The card gets a
-  "My own build" badge and a light tint. See cases 08 and 09.
+  "My own build" badge and a light tint. See cases 09 and 10.
 - `didLabel:` replaces the heading "What we did together", for example
   `didLabel: "What I built",`.
 - `demo:` shows a box with this text and a "Book a demo" button (it uses
@@ -82,7 +82,7 @@ Leave any of these out and the case simply doesn't show them.
   that the code comes without the live data keys. It only shows on a case
   that also has `demo:`. Searching "github" or "code" finds these cases.
 
-The AI connectors and agents in cases 08 and 09 also have their own page,
+The AI connectors and agents in cases 09 and 10 also have their own page,
 `ai.html`. If you add a case about them, link it from there too.
 
 ### Add your photo

@@ -38,7 +38,7 @@ window.SITE_CONTENT = {
 
   /* ---------- Stats strip (4 short facts) ---------- */
   stats: [
-    { value: "7", label: "doctoral journeys featured" },
+    { value: "8", label: "researchers supported, from PhD to faculty" },
     { value: "3+ years", label: "of continuous researcher support" },
     { value: "15+", label: "databases and research platforms" },
     { value: "Proposal → submission", label: "support at every stage" }
@@ -60,7 +60,7 @@ window.SITE_CONTENT = {
       title: "Finding the right data",
       description: "“Does the data exist, where is it, and which source fits my question?” I’ll help you scope feasibility early and choose the best source for each variable.",
       chips: ["WRDS", "CRSP", "Compustat", "BoardEx", "SDC M&A", "Bloomberg", "S&P Capital IQ", "Refinitiv (LSEG)", "Datastream", "FactSet", "USPTO"],
-      cases: ["01", "02", "03", "04", "05", "07", "09"]
+      cases: ["01", "02", "03", "04", "05", "07", "08", "09"]
     },
     {
       title: "Linking and cleaning across databases",
@@ -84,17 +84,17 @@ window.SITE_CONTENT = {
       title: "Literature searching and evidence synthesis",
       description: "Search strategies for systematic reviews and meta-analyses, plus responsible use of AI discovery tools.",
       chips: ["Subject headings", "Citation chaining", "ResearchRabbit", "Litmaps", "Scopus", "PRISMA", "AI-assisted discovery"],
-      cases: ["03", "06"]
+      cases: ["03", "06", "08"]
     },
     {
       title: "AI, APIs and research agents",
       description: "Pulling data through APIs and Python, and using AI connectors (MCP) to build your own research agents, with the guardrails that keep every number traceable.",
       chips: ["Python", "APIs", "MCP", "OpenAlex", "arXiv", "SEC EDGAR", "AI agents", "Source audits"],
-      cases: ["03", "05", "06", "07", "08", "09"]
+      cases: ["03", "05", "06", "07", "09", "10"]
     }
   ],
 
-  /* ---------- Nine research journeys ----------
+  /* ---------- Ten research journeys ----------
      own       : optional; true marks a case from my own practice
      didLabel  : optional; replaces the heading “What we did together”
      demo      : optional; shows a “Book a demo” box with this text
@@ -255,28 +255,24 @@ window.SITE_CONTENT = {
     },
     {
       id: "08",
-      own: true,
-      title: "When discovery meant building my own research agent",
-      role: "From my own practice",
-      field: "Open financial data & literature discovery",
-      duration: "Self-initiated build",
-      stages: ["Finding data", "Code & workflows", "Literature search"],
-      tools: ["Python", "APIs", "MCP", "Yahoo Finance", "Alpha Vantage", "OpenAlex", "arXiv", "DOAJ", "SEC EDGAR"],
-      challenge: "Before choosing a licensed database, I often need a fast first look: a few companies’ prices and accounts from open financial sources, plus what academic research already says about the topic. Doing that by hand meant hopping between websites, copying numbers into spreadsheets and running separate literature searches, with no record of where each figure came from.",
-      didLabel: "What I built",
+      title: "Answering a journal reviewer with evidence from five disciplines",
+      role: "Faculty researcher",
+      field: "Marketing · Consumer behaviour and cultural values",
+      duration: "~10 months, three phases",
+      stages: ["Finding data", "Literature search", "Writing & completion"],
+      tools: ["Scopus", "ProQuest", "Newspapers & trade journals", "Advanced search strings", "Forward & backward citation chasing", "CSV exports"],
+      challenge: "A faculty member’s manuscript for a top-tier marketing journal came back from review with a clear request: stronger real-world evidence, and a literature base that reached well beyond marketing. The topic, how cultural values shape consumers’ misbehaviour in the marketplace, was scattered across marketing, psychology, management, economics and law, each with its own vocabulary.",
       did: [
-        "An AI connector built on the Model Context Protocol (MCP), so a plain-language question is routed to a specific data operation instead of a generic web search.",
-        "Two open financial-data sources, Yahoo Finance and Alpha Vantage, covering prices, company accounts, ownership snapshots, corporate actions and macro indicators.",
-        "Literature discovery in the same workflow: OpenAlex for published research, arXiv for preprints (always labelled as preprints), and DOAJ to check whether a journal is listed.",
-        "A source audit on every answer: provider, retrieval date, rows returned, row limits and missing fields, with calculated values kept apart from reported ones.",
-        "A confirmation gate. When a field isn’t available, such as executive pay, the agent names the gap, proposes the narrowest authoritative source (SEC filings) and waits for approval before using it.",
-        "Deliberate stress tests: invalid tickers, truncated price histories, missing values that must stay missing rather than become zero, and preprints that must never pass as peer-reviewed."
+        "Started with a consultation on the manuscript, keyword lists and examples, then searched ProQuest’s newspapers, trade journals and magazines for documented real-world cases across jurisdictions.",
+        "Designed and iterated advanced Scopus search strings with field codes, truncation, document-type limits and source exclusions, exporting 403 records with abstracts for screening.",
+        "Documented every change to the search. One broader term pulled in papers from ecology and engineering, a useful lesson in why subject limits and screening matter as much as recall.",
+        "Ran citation chasing on 15 key papers in both directions: 390 references they cited, and 996 later works that cited them.",
+        "Returned months later for the revision’s second phase, a comprehensive search on a related cultural construct, combining systematic searching with forward and backward citation tracking to retrieve 183 further records.",
+        "Closed with targeted refinements: an adjacent behaviour literature, cultural-dimension frameworks and a final set of candidate papers for the reviewer response."
       ],
-      outcome: "A fast, documented scoping layer. In minutes I can compare companies, pull recent accounts and see the relevant literature side by side, then decide which licensed database the real study needs. It doesn’t replace WRDS, Bloomberg, LSEG, Capital IQ or Scopus; it tells me which one to open.",
-      demo: "The open APIs behind it have tight daily limits, so it isn’t open for public use. Book a session and I’ll demo it live, or help you plan an agent of your own.",
-      code: "https://github.com/redzabdullah/Finance-Open-Resource",
-      journey: ["Repetitive scoping work", "Agent design", "Open data + literature", "Source audit & limits", "Tested & demoed"],
-      takeaway: "Sometimes discovery means building your own tool. Let AI do the fetching, but make it show its evidence."
+      outcome: "Each phase delivered search strategies, exported records and candidate papers that the researcher used as the starting point for the revision. The paper was accepted and published in a leading marketing journal, with a formal acknowledgement of the library’s research assistance.",
+      journey: ["Reviewer request", "Real-world evidence", "Search string design", "Citation chasing", "Second-phase search", "Published"],
+      takeaway: "A reviewer’s request is a search brief. Treat it like one: design the string, document every change, then chase citations both ways."
     },
     {
       id: "09",
@@ -299,10 +295,35 @@ window.SITE_CONTENT = {
       ],
       outcome: "The researcher confirmed the dataset was exactly the kind of data they were after and asked for more like it. That request is why the assistant exists: it now produces a defensible shortlist of candidate studies in minutes, while the final check still happens where it should, in ICPSR’s codebooks and documentation.",
       quote: "Thank you for this information. That’s very helpful. We are looking for data along these lines.",
-      demo: "Like Case 08, it isn’t open for public use. Book a session and I’ll run it live on your topic, then we’ll check the shortlist in ICPSR’s documentation together.",
+      demo: "Like the agent in Case 10, it isn’t open for public use. Book a session and I’ll run it live on your topic, then we’ll check the shortlist in ICPSR’s documentation together.",
       code: "https://github.com/redzabdullah/ICPSR-API",
       journey: ["Faculty data request", "Repository scan", "Question-level search", "Dataset found", "Assistant built"],
       takeaway: "When the same search keeps coming back, turn it into a tool. But a shortlist is only a start: the codebook has the final word."
+    },
+    {
+      id: "10",
+      own: true,
+      title: "When discovery meant building my own research agent",
+      role: "From my own practice",
+      field: "Open financial data & literature discovery",
+      duration: "Self-initiated build",
+      stages: ["Finding data", "Code & workflows", "Literature search"],
+      tools: ["Python", "APIs", "MCP", "Yahoo Finance", "Alpha Vantage", "OpenAlex", "arXiv", "DOAJ", "SEC EDGAR"],
+      challenge: "Before choosing a licensed database, I often need a fast first look: a few companies’ prices and accounts from open financial sources, plus what academic research already says about the topic. Doing that by hand meant hopping between websites, copying numbers into spreadsheets and running separate literature searches, with no record of where each figure came from.",
+      didLabel: "What I built",
+      did: [
+        "An AI connector built on the Model Context Protocol (MCP), so a plain-language question is routed to a specific data operation instead of a generic web search.",
+        "Two open financial-data sources, Yahoo Finance and Alpha Vantage, covering prices, company accounts, ownership snapshots, corporate actions and macro indicators.",
+        "Literature discovery in the same workflow: OpenAlex for published research, arXiv for preprints (always labelled as preprints), and DOAJ to check whether a journal is listed.",
+        "A source audit on every answer: provider, retrieval date, rows returned, row limits and missing fields, with calculated values kept apart from reported ones.",
+        "A confirmation gate. When a field isn’t available, such as executive pay, the agent names the gap, proposes the narrowest authoritative source (SEC filings) and waits for approval before using it.",
+        "Deliberate stress tests: invalid tickers, truncated price histories, missing values that must stay missing rather than become zero, and preprints that must never pass as peer-reviewed."
+      ],
+      outcome: "A fast, documented scoping layer. In minutes I can compare companies, pull recent accounts and see the relevant literature side by side, then decide which licensed database the real study needs. It doesn’t replace WRDS, Bloomberg, LSEG, Capital IQ or Scopus; it tells me which one to open.",
+      demo: "The open APIs behind it have tight daily limits, so it isn’t open for public use. Book a session and I’ll demo it live, or help you plan an agent of your own.",
+      code: "https://github.com/redzabdullah/Finance-Open-Resource",
+      journey: ["Repetitive scoping work", "Agent design", "Open data + literature", "Source audit & limits", "Tested & demoed"],
+      takeaway: "Sometimes discovery means building your own tool. Let AI do the fetching, but make it show its evidence."
     }
   ],
 
