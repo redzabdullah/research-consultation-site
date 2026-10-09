@@ -170,14 +170,15 @@ a:hover { color: var(--accent-strong); }
 
 /* Phones: one short link to the other page, next to "Book" */
 .topbar__nav a.topbar__mobile { display: inline; }
-@media (max-width: 767px) {
+/* The full nav needs about 960px, so phones and tablets get the short bar */
+@media (max-width: 1023px) {
   .topbar__nav { gap: 1rem; }
 }
 @media (max-width: 399px) {
   .topbar__org { display: none; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .topbar__nav a:not(.topbar__book) { display: inline; }
   .topbar__nav a.topbar__mobile { display: none; }
 }
@@ -242,6 +243,7 @@ a:hover { color: var(--accent-strong); }
 .hero__guide { margin-top: 1.1rem; font-size: 0.9375rem; }
 .hero__guide a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.25em; }
 .hero__guide a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.hero__guide + .hero__guide { margin-top: 0.5rem; }
 
 .person {
   display: flex;
@@ -776,3 +778,14 @@ a:hover { color: var(--accent-strong); }
   .case.is-open > .case__takeaway, .case > .case__takeaway { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- Case from my own practice ---------- */
+.case--own { background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 55%, var(--surface)) 0, var(--surface) 9rem); border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+.case__badge {
+  display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.55rem;
+  border-radius: 999px; background: var(--accent); color: var(--on-accent);
+  font-family: var(--sans); font-style: normal; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.04em; vertical-align: 0.1em;
+}
+.demo { display: grid; gap: 0.85rem; justify-items: start; padding: 1rem 1.1rem; border-radius: var(--radius-sm); background: var(--accent-soft); }
+.demo__text { color: var(--ink); }

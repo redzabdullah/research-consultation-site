@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for research data · Redzuan Abdullah, SMU Libraries</title>
+  <meta name="description" content="From point-and-click databases to APIs, Python and your own AI research agents, and how to keep every AI answer traceable. By Redzuan Abdullah, SMU Libraries.">
+  <meta name="theme-color" content="#f8f5ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://redzuan-research-support.onrender.com/ai.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Research consultations · SMU Libraries">
+  <meta property="og:title" content="AI for research data: discover fast, keep the evidence">
+  <meta property="og:description" content="APIs, Python and AI agents for postgraduate research, with the guardrails that keep results traceable.">
+  <meta property="og:url" content="https://redzuan-research-support.onrender.com/ai.html">
+  <meta property="og:image" content="https://redzuan-research-support.onrender.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for research data: discover fast, keep the evidence">
+  <meta name="twitter:image" content="https://redzuan-research-support.onrender.com/assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Source+Sans+3:wght@400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="guide.css">
+  <link rel="stylesheet" href="ai.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="topbar__brand" href="index.html">
+        <span class="topbar__name">Redzuan Abdullah</span>
+        <span class="topbar__org">SMU Libraries</span>
+      </a>
+      <nav class="topbar__nav" aria-label="Sections">
+        <a href="guide.html">Data discovery guide</a>
+        <a href="ai.html" aria-current="page">AI &amp; research data</a>
+        <a href="index.html#help">Where I can help</a>
+        <a href="index.html#cases">Cases</a>
+        <a class="topbar__mobile" href="index.html#cases">Cases</a>
+        <a class="topbar__book" href="https://researchguides.smu.edu.sg/prf.php?id=c960a95b-7bd7-11ed-9738-0ae0bf56cf20" target="_blank" rel="noopener">Book<span class="sr-only"> a consultation (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="ghero" aria-labelledby="ai-title">
+      <div class="wrap">
+        <p class="eyebrow">AI &amp; research data</p>
+        <h1 id="ai-title" class="ghero__title">Discover faster with AI, <em>without losing the evidence</em></h1>
+        <p class="ghero__lede">APIs, Python and AI agents can scan open financial data and the literature in minutes. Here’s how to climb from point-and-click databases to an agent of your own, and how to tell a trustworthy AI answer from a fluent one.</p>
+        <p class="ghero__by">By <strong>Redzuan Abdullah</strong>, SMU Libraries · Companion to the <a href="guide.html">Data Discovery Guide</a></p>
+
+        <nav class="jump" aria-label="Jump to a section">
+          <p class="jump__label">On this page</p>
+          <ol class="jump__list" style="gap:0.5rem">
+            <li><a href="#ladder" style="font-family:var(--sans);font-size:0.9375rem;font-weight:600;padding:0 1rem">The discovery ladder</a></li>
+            <li><a href="#trust" style="font-family:var(--sans);font-size:0.9375rem;font-weight:600;padding:0 1rem">A trustworthy AI answer</a></li>
+            <li><a href="#prompt" style="font-family:var(--sans);font-size:0.9375rem;font-weight:600;padding:0 1rem">A reusable prompt</a></li>
+            <li><a href="#boundary" style="font-family:var(--sans);font-size:0.9375rem;font-weight:600;padding:0 1rem">When to switch</a></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 1. Ladder -->
+    <section class="section section--tint" id="ladder" aria-labelledby="ladder-title" style="padding-top:3.5rem">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">1 · The discovery ladder</p>
+          <h2 id="ladder-title" class="section__title">Five ways to get at data, each a step up in speed and responsibility</h2>
+          <p class="section__intro">You don’t have to climb to the top. Most theses use the first three or four rungs. But knowing what’s possible changes how you scope a project.</p>
+        </header>
+
+        <ol class="ladder ladder--five">
+          <li class="rung">
+            <div class="rung__bar" aria-hidden="true"><span style="width:20%"></span></div>
+            <div class="rung__top">
+              <span class="rung__level" aria-hidden="true">1</span>
+              <div><p class="rung__kicker">Rung 1</p><h3 class="rung__title">Point-and-click platforms</h3></div>
+            </div>
+            <p class="rung__desc">Web query forms and terminals: WRDS, Bloomberg, LSEG Workspace, Capital IQ.</p>
+            <div class="rung__pair">
+              <p class="rung__good"><b>Best for</b>Licensed, research-grade data with documented definitions.</p>
+              <p class="rung__watch"><b>Watch out</b>Manual steps are hard to repeat exactly. Record every filter you set.</p>
+            </div>
+            <p class="gstep__foot">See it in practice <a class="case-link" href="index.html#case-07">Case 07</a></p>
+          </li>
+
+          <li class="rung">
+            <div class="rung__bar" aria-hidden="true"><span style="width:40%"></span></div>
+            <div class="rung__top">
+              <span class="rung__level" aria-hidden="true">2</span>
+              <div><p class="rung__kicker">Rung 2</p><h3 class="rung__title">Excel add-ins</h3></div>
+            </div>
+            <p class="rung__desc">The database inside your spreadsheet: Bloomberg Spreadsheet Builder, LSEG Workspace and Datastream formulas, the Capital IQ and FactSet plug-ins.</p>
+            <div class="rung__pair">
+              <p class="rung__good"><b>Best for</b>Building a panel of many firms and fields in one go, and refreshing it later from the same formulas.</p>
+              <p class="rung__watch"><b>Watch out</b>Download caps and terminal-only licences. Keep the formulas, not just the pasted values, so you can show how the data was pulled.</p>
+            </div>
+            <p class="gstep__foot">See it in practice <a class="case-link" href="index.html#case-02">Case 02</a> <a class="case-link" href="index.html#case-03">Case 03</a></p>
+          </li>
+
+          <li class="rung">
+            <div class="rung__bar" aria-hidden="true"><span style="width:60%"></span></div>
+            <div class="rung__top">
+              <span class="rung__level" aria-hidden="true">3</span>
+              <div><p class="rung__kicker">Rung 3</p><h3 class="rung__title">APIs</h3></div>
+            </div>
+            <p class="rung__desc">Structured requests sent straight to a provider: ICPSR, OpenAlex, SEC EDGAR, World Bank, Alpha Vantage.</p>
+            <div class="rung__pair">
+              <p class="rung__good"><b>Best for</b>Repeatable pulls you can rerun next month and get the same shape of data.</p>
+              <p class="rung__watch"><b>Watch out</b>Rate limits, API keys and terms of use. Some free tiers allow only a couple of dozen calls a day.</p>
+            </div>
+            <p class="gstep__foot">See it in practice <a class="case-link" href="index.html#case-09">Case 09</a></p>
+          </li>
+
+          <li class="rung">
+            <div class="rung__bar" aria-hidden="true"><span style="width:80%"></span></div>
+            <div class="rung__top">
+              <span class="rung__level" aria-hidden="true">4</span>
+              <div><p class="rung__kicker">Rung 4</p><h3 class="rung__title">Python &amp; notebooks</h3></div>
+            </div>
+            <p class="rung__desc">SQL and Python in WRDS JupyterHub or your own notebook: pandas, merges, loops over thousands of firms.</p>
+            <div class="rung__pair">
+              <p class="rung__good"><b>Best for</b>Reproducible cleaning, merging and variable construction at scale.</p>
+              <p class="rung__watch"><b>Watch out</b>A learning curve. Use version control and comment your code for your future self.</p>
+            </div>
+            <p class="gstep__foot">See it in practice <a class="case-link" href="index.html#case-05">Case 05</a></p>
+          </li>
+
+          <li class="rung rung--top">
+            <div class="rung__bar" aria-hidden="true"><span style="width:100%"></span></div>
+            <div class="rung__top">
+              <span class="rung__level" aria-hidden="true">5</span>
+              <div><p class="rung__kicker">Rung 5</p><h3 class="rung__title">AI connectors &amp; your own agents</h3></div>
+            </div>
+            <p class="rung__desc">An AI assistant calls named data tools for you, through an open standard called the Model Context Protocol (MCP). You ask in plain language; it fetches, compares and reports.</p>
+            <div class="rung__pair">
+              <p class="rung__good"><b>Best for</b>Fast scoping across several sources: data and literature, side by side.</p>
+              <p class="rung__watch"><b>Watch out</b>Fluent answers can hide weak sources, cut-off results and licence breaches. Insist on a source audit.</p>
+            </div>
+            <p class="gstep__foot">See it in practice <a class="case-link" href="index.html#case-08">Case 08</a> <a class="case-link" href="index.html#case-09">Case 09</a></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 2. Trust -->
+    <section class="section" id="trust" aria-labelledby="trust-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">2 · A trustworthy AI answer</p>
+          <h2 id="trust-title" class="section__title">A fluent answer is not the same as a sourced one</h2>
+          <p class="section__intro">Whether you use a ready-made AI tool or build your own agent, a defensible answer should let you trace every number back to where it came from.</p>
+        </header>
+
+        <div class="trust">
+          <div class="trust__panel">
+            <h3>Every answer should show</h3>
+            <ul class="glist glist--check">
+              <li>The provider, and the underlying source behind it</li>
+              <li>The reporting period or as-of date</li>
+              <li>When and how the data was retrieved</li>
+              <li>How many rows came back, and whether a limit cut the result short</li>
+              <li>The formula, and its inputs, for anything calculated</li>
+              <li>Currencies, units and any missing values</li>
+            </ul>
+            <p class="gstep__sub" style="margin-top:1.25rem">And label each value as</p>
+            <div class="status">
+              <span class="chip chip--rep">Reported</span>
+              <span class="chip chip--calc">Calculated</span>
+              <span class="chip chip--sup">Supplementary</span>
+              <span class="chip chip--na">Unavailable</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="gstep__sub">Common traps</p>
+            <ul class="traps">
+              <li class="trap"><p class="trap__name">The silent cut-off</p><p class="trap__text">A tool returns 250 rows of a 10-year daily series and says nothing. Ask for row limits every time.</p></li>
+              <li class="trap"><p class="trap__name">Missing is not zero</p><p class="trap__text">An unavailable ESG score shown as 0 quietly changes your results. Nulls must stay null.</p></li>
+              <li class="trap"><p class="trap__name">Fiscal vs calendar year</p><p class="trap__text">“2025” may end in March or June. Keep the period-end date.</p></li>
+              <li class="trap"><p class="trap__name">Close vs adjusted close</p><p class="trap__text">Splits and dividends change historical prices and returns. Say which one you used.</p></li>
+              <li class="trap"><p class="trap__name">Preprint ≠ peer-reviewed</p><p class="trap__text">arXiv papers are valuable, but keep them separate until you’ve checked later publication.</p></li>
+              <li class="trap"><p class="trap__name">A snapshot is not a history</p><p class="trap__text">A “top 20 holders” list is today’s view, not complete historical ownership.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Prompt -->
+    <section class="section section--tight" id="prompt" aria-labelledby="prompt-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">3 · A reusable prompt</p>
+          <h2 id="prompt-title" class="section__title">Tell the AI what to fetch, and what to do when it can’t</h2>
+        </header>
+        <div class="prompt">
+          <p class="prompt__label">Copy and fill in the highlighted parts</p>
+          Retrieve <mark>[measure]</mark> for <mark>[company or ticker]</mark> for <mark>[period]</mark> at <mark>[frequency]</mark>. Return <mark>[fields and format]</mark>. Preserve the source’s dates, units and field names. State row limits and missing values. Do not add another source without first telling me what is missing and asking for confirmation.
+        </div>
+        <p class="prompt__note">The last sentence matters most. It stops an AI tool from quietly filling a gap with an unvetted web source, which is exactly the “confirmation gate” built into the agent in <a href="index.html#case-08">Case 08</a>.</p>
+      </div>
+    </section>
+
+    <!-- 4. Boundary -->
+    <section class="section section--tint" id="boundary" aria-labelledby="boundary-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">4 · When to switch</p>
+          <h2 id="boundary-title" class="section__title">Use AI to scope. Move to a licensed database when…</h2>
+          <p class="section__intro">Open sources and AI agents are excellent for a first look. Your final dataset usually needs a specialist source.</p>
+        </header>
+
+        <div class="boundary gtable-wrap">
+          <table class="gtable">
+            <thead><tr><th scope="col">Good for AI + open data</th><th scope="col">Switch to a specialist source when</th></tr></thead>
+            <tbody>
+              <tr><td>Quick quotes and small price extracts</td><td>You need CRSP-quality returns, or delisted firms</td></tr>
+              <tr><td>Inspecting a company’s recent statements</td><td>You need a long Compustat panel with standardised variables</td></tr>
+              <tr><td>Exploratory literature discovery</td><td>You’re running a systematic review that needs reproducible, database-specific searches</td></tr>
+              <tr><td>Rapid feasibility checks before choosing a database</td><td>You need complete ownership, executive pay, or historical news</td></tr>
+              <tr><td>Learning and teaching data literacy</td><td>Your examiners will expect licensed, point-in-time, audit-grade data</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="licence" aria-label="Licence terms">
+          <p class="licence__title">Check licence terms before giving licensed data to AI</p>
+          <p>Many licensed database agreements restrict exporting, sharing or uploading their data to third-party services, and that can include AI chat tools. Before you paste a WRDS, Bloomberg or LSEG extract into an AI assistant, check the terms, or ask me.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Final -->
+    <section class="principle" aria-labelledby="ai-principle-title">
+      <div class="wrap">
+        <p class="eyebrow">The principle</p>
+        <h2 id="ai-principle-title" class="principle__title">Let AI do the fetching. Keep the judgement, and the evidence, yours.</h2>
+        <div class="principle__cols">
+          <div class="principle__col">
+            <h3>See it live</h3>
+            <p>Book a session and I’ll demo my research agents for financial data and ICPSR on a question from your field.</p>
+          </div>
+          <div class="principle__col">
+            <h3>Plan your own</h3>
+            <p>Which APIs fit your topic, what Python you actually need, and where an agent would save you time.</p>
+          </div>
+          <div class="principle__col">
+            <h3>Stay defensible</h3>
+            <p>Build source audits and licence checks into your workflow before your examiners ask.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn--light" href="https://researchguides.smu.edu.sg/prf.php?id=c960a95b-7bd7-11ed-9738-0ae0bf56cf20" target="_blank" rel="noopener">
+            Book a demo or consultation<span class="sr-only"> (opens in a new tab)</span>
+            <svg class="btn__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7 4h9v9M16 4 5 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--outline-light" href="index.html#case-08">Read Cases 08 &amp; 09</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__meta">Redzuan Abdullah · SMU Libraries, Singapore Management University · 2026</p>
+    </div>
+  </footer>
+
+  <a class="sticky-book is-visible" href="https://researchguides.smu.edu.sg/prf.php?id=c960a95b-7bd7-11ed-9738-0ae0bf56cf20" target="_blank" rel="noopener">
+    Book a demo or consultation<span class="sr-only"> (opens in a new tab)</span>
+  </a>
+</body>
+</html>

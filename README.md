@@ -10,6 +10,8 @@ open.
 | `index.html` | Page layout and hero/closing text | Rarely |
 | `styles.css` | Colours, fonts, spacing | Rarely |
 | `script.js` | Makes filters, search and buttons work | No |
+| `guide.html` + `guide.css` | The 10-step Data Discovery Guide page | For wording changes |
+| `ai.html` + `ai.css` | The "AI & research data" page. `ai.css` loads after `styles.css` and `guide.css` and reuses their styles | For wording changes |
 | `card.html` | Printable A6 call card with QR code | No (it reads `content.js`) |
 | `assets/` | QR code, share preview image, icons, your photo | When your URL changes |
 | `tools/make_images.py` | Rebuilds the QR code and share image | Run it, don't edit it |
@@ -54,17 +56,29 @@ probably missing. Press **Ctrl+Z** until it works again. In VS Code,
 syntax mistakes are underlined in red.
 
 ### Add another case
-There are seven cases. To add an eighth, copy a whole case block, from its
+There are nine cases: seven researcher journeys (01–07) and two from my
+own practice (08–09). To add a tenth, copy a whole case block, from its
 `{` to the matching `},`, paste it after the last case, and give it
-`id: "08"`. To link it from a theme card, add `"08"` to that theme's
-`cases: [...]` list. Also update the "7 doctoral journeys" stat, the
-"seven" wording in `index.html` (hero, section heading, descriptions) and
-`card.html`.
+`id: "10"`. To link it from a theme card, add `"10"` to that theme's
+`cases: [...]` list. Also check the wording that counts cases: the
+"7 doctoral journeys" stat in `content.js`, and in `index.html` the hero
+sentence, the "Nine research journeys" heading, and the meta, OG and
+Twitter descriptions.
 
-### Add a researcher quote (optional)
-A case can have a `quote:` line with the researcher's own words. It shows
-as a quiet pull-quote under "The outcome". Cases without one simply skip it.
-See case 07 for an example.
+### Optional case fields
+Leave any of these out and the case simply doesn't show them.
+
+- `quote:` the researcher's own words, shown as a quiet pull-quote under
+  "The outcome". See case 07.
+- `own: true,` marks a case from your own practice. The card gets a
+  "My own build" badge and a light tint. See cases 08 and 09.
+- `didLabel:` replaces the heading "What we did together", for example
+  `didLabel: "What I built",`.
+- `demo:` shows a box with this text and a "Book a demo" button (it uses
+  your `bookingUrl`). It appears after the quote, if there is one.
+
+The AI connectors and agents in cases 08 and 09 also have their own page,
+`ai.html`. If you add a case about them, link it from there too.
 
 ### Add your photo
 Save a square photo (about 300 × 300 pixels, **under 150 KB**) as

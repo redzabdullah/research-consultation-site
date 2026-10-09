@@ -95,8 +95,8 @@
 
   $("#case-list").innerHTML = C.cases.map(function (c) {
     var detailId = "case-" + c.id + "-detail";
-    return '<li class="case reveal" id="case-' + esc(c.id) + '" data-id="' + esc(c.id) + '">' +
-      '<div class="case__top"><p class="case__num">Case ' + esc(c.id) + '</p><p class="case__duration">' + esc(c.duration) + "</p></div>" +
+    return '<li class="case reveal' + (c.own ? ' case--own' : '') + '" id="case-' + esc(c.id) + '" data-id="' + esc(c.id) + '">' +
+      '<div class="case__top"><p class="case__num">Case ' + esc(c.id) + (c.own ? ' <span class="case__badge">My own build</span>' : '') + '</p><p class="case__duration">' + esc(c.duration) + "</p></div>" +
       '<h3 class="case__title">' + esc(c.title) + "</h3>" +
       '<p class="case__profile">' + esc(c.role) + " · " + esc(c.field) + "</p>" +
       '<div class="case__stages"><span class="sr-only">Stages: </span>' + chips(c.stages).replace(/class="chip"/g, 'class="chip chip--stage"') + "</div>" +
@@ -105,11 +105,12 @@
         '<span class="case__toggle-text">Read the full journey</span>' + chevron + "</button>" +
       '<div class="case__detail" id="' + detailId + '" hidden>' +
         '<div class="detail__block"><h4 class="detail__h">The challenge</h4><p class="detail__text">' + fmt(c.challenge) + "</p></div>" +
-        '<div class="detail__block"><h4 class="detail__h">What we did together</h4><ul class="detail__list">' +
+        '<div class="detail__block"><h4 class="detail__h">' + esc(c.didLabel || "What we did together") + '</h4><ul class="detail__list">' +
           c.did.map(function (d) { return "<li>" + fmt(d) + "</li>"; }).join("") + "</ul></div>" +
         '<div class="detail__block"><h4 class="detail__h">The outcome</h4><p class="detail__outcome">' + fmt(c.outcome) + "</p></div>" +
         (c.quote ? '<figure class="detail__block quote"><blockquote class="quote__text"><p>' + fmt(c.quote) +
           '</p></blockquote><figcaption class="quote__by">The researcher, in their own words</figcaption></figure>' : "") +
+        (c.demo ? '<div class="detail__block demo"><p class="demo__text">' + fmt(c.demo) + '</p><a class="btn btn--primary btn--small" href="' + esc(C.person.bookingUrl) + '" target="_blank" rel="noopener">Book a demo<span class="sr-only"> (opens in a new tab)</span></a></div>' : "") +
         '<div class="detail__block"><h4 class="detail__h">Journey</h4><ol class="journey">' +
           c.journey.map(function (j) { return '<li class="journey__step">' + esc(j) + "</li>"; }).join("") + "</ol></div>" +
         '<div class="detail__block"><h4 class="detail__h">Tools and sources</h4>' + chips(c.tools, "detail__tools") + "</div>" +

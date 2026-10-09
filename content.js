@@ -54,13 +54,13 @@ window.SITE_CONTENT = {
     "Writing & completion"
   ],
 
-  /* ---------- Where I can help (6 themes) ---------- */
+  /* ---------- Where I can help (7 themes) ---------- */
   themes: [
     {
       title: "Finding the right data",
       description: "“Does the data exist, where is it, and which source fits my question?” I’ll help you scope feasibility early and choose the best source for each variable.",
       chips: ["WRDS", "CRSP", "Compustat", "BoardEx", "SDC M&A", "Bloomberg", "S&P Capital IQ", "Refinitiv (LSEG)", "Datastream", "FactSet", "USPTO"],
-      cases: ["01", "02", "03", "04", "05", "07"]
+      cases: ["01", "02", "03", "04", "05", "07", "09"]
     },
     {
       title: "Linking and cleaning across databases",
@@ -87,6 +87,12 @@ window.SITE_CONTENT = {
       cases: ["03", "06"]
     },
     {
+      title: "AI, APIs and research agents",
+      description: "Pulling data through APIs and Python, and using AI connectors (MCP) to build your own research agents, with the guardrails that keep every number traceable.",
+      chips: ["Python", "APIs", "MCP", "OpenAlex", "arXiv", "SEC EDGAR", "AI agents", "Source audits"],
+      cases: ["03", "05", "06", "07", "08", "09"]
+    },
+    {
       title: "Getting over the finish line",
       description: "Citation and formatting checks before submission, and practical help with specialist terminals and access issues.",
       chips: ["APA 7", "Tables & figures", "Investment Studio", "Terminal bookings"],
@@ -94,7 +100,10 @@ window.SITE_CONTENT = {
     }
   ],
 
-  /* ---------- Seven research journeys ----------
+  /* ---------- Nine research journeys ----------
+     own       : optional; true marks a case from my own practice
+     didLabel  : optional; replaces the heading “What we did together”
+     demo      : optional; shows a “Book a demo” box with this text
      id        : the case number shown on the card ("01", "02"…)
      stages    : must match names in the "stages" list above
      tools     : database/tool names shown as chips (also searchable)
@@ -247,6 +256,55 @@ window.SITE_CONTENT = {
       quote: "It is very useful in further thinking and understanding potential form and substance variables.",
       journey: ["Feasibility check", "Variable mapping", "Measurement strategy", "Multi-database plan", "Panel design"],
       takeaway: "Start from your theory, not the database. Sort the variables into your own framework and the gaps in your data become obvious."
+    },
+    {
+      id: "08",
+      own: true,
+      title: "When discovery meant building my own research agent",
+      role: "From my own practice",
+      field: "Open financial data & literature discovery",
+      duration: "Self-initiated build",
+      stages: ["Finding data", "Code & workflows", "Literature search"],
+      tools: ["Python", "APIs", "MCP", "Yahoo Finance", "Alpha Vantage", "OpenAlex", "arXiv", "DOAJ", "SEC EDGAR"],
+      challenge: "Before choosing a licensed database, I often need a fast first look: a few companies’ prices and accounts from open financial sources, plus what academic research already says about the topic. Doing that by hand meant hopping between websites, copying numbers into spreadsheets and running separate literature searches, with no record of where each figure came from.",
+      didLabel: "What I built",
+      did: [
+        "An AI connector built on the Model Context Protocol (MCP), so a plain-language question is routed to a specific data operation instead of a generic web search.",
+        "Two open financial-data sources, Yahoo Finance and Alpha Vantage, covering prices, company accounts, ownership snapshots, corporate actions and macro indicators.",
+        "Literature discovery in the same workflow: OpenAlex for published research, arXiv for preprints (always labelled as preprints), and DOAJ to check whether a journal is listed.",
+        "A source audit on every answer: provider, retrieval date, rows returned, row limits and missing fields, with calculated values kept apart from reported ones.",
+        "A confirmation gate. When a field isn’t available, such as executive pay, the agent names the gap, proposes the narrowest authoritative source (SEC filings) and waits for approval before using it.",
+        "Deliberate stress tests: invalid tickers, truncated price histories, missing values that must stay missing rather than become zero, and preprints that must never pass as peer-reviewed."
+      ],
+      outcome: "A fast, documented scoping layer. In minutes I can compare companies, pull recent accounts and see the relevant literature side by side, then decide which licensed database the real study needs. It doesn’t replace WRDS, Bloomberg, LSEG, Capital IQ or Scopus; it tells me which one to open.",
+      demo: "The open APIs behind it have tight daily limits, so it isn’t open for public use. Book a session and I’ll demo it live, or help you plan an agent of your own.",
+      journey: ["Repetitive scoping work", "Agent design", "Open data + literature", "Source audit & limits", "Tested & demoed"],
+      takeaway: "Sometimes discovery means building your own tool. Let AI do the fetching, but make it show its evidence."
+    },
+    {
+      id: "09",
+      own: true,
+      title: "From one faculty data request to an AI search assistant for ICPSR",
+      role: "Faculty request, then my own build",
+      field: "Workplace behaviour · Social science data discovery",
+      duration: "Two-day enquiry, then a build",
+      stages: ["Finding data", "Research design", "Code & workflows"],
+      tools: ["ICPSR", "Harvard Dataverse", "ICPSR API", "MCP", "AI agents", "Python"],
+      challenge: "A faculty researcher needed survey data capturing moments when employees reveal personal circumstances at work, such as taking leave to care for a family member, and it had to sit alongside each employee’s position in the hierarchy. Social science archives hold thousands of studies, but variables like these are buried inside questionnaires, not in study titles.",
+      didLabel: "What I did, and then built",
+      did: [
+        "Turned the request into two must-have criteria: a variable showing an employee disclosing a personal circumstance, and a measure of seniority such as grade level or supervisory status.",
+        "Scanned the major social-science repositories, Harvard Dataverse and ICPSR, then searched ICPSR at question level for terms such as “sick leave” and “annual leave”.",
+        "Found a large public-sector employee survey whose questions on using leave for adult dependent care sat alongside grade level and supervisory status, meeting both criteria in one dataset. I also flagged its limitation: an older workforce context.",
+        "Realised that this kind of search doesn’t scale by hand. Every new concept meant another round of keyword trial and error across thousands of study records.",
+        "So I built *ICPSR Data Search*: an AI assistant that turns a plain-language request into structured searches of ICPSR study metadata (topic, geography, investigator, funder, archive and release dates) through ICPSR’s own API.",
+        "Kept retrieval and interpretation apart. Every answer lists the search parameters, retrieval date, result count, study numbers and links, labels relevance notes as the assistant’s judgement, and warns that finding a study isn’t proof it contains the variables you need."
+      ],
+      outcome: "The researcher confirmed the dataset was exactly the kind of data they were after and asked for more like it. That request is why the assistant exists: it now produces a defensible shortlist of candidate studies in minutes, while the final check still happens where it should, in ICPSR’s codebooks and documentation.",
+      quote: "Thank you for this information. That’s very helpful. We are looking for data along these lines.",
+      demo: "Like Case 08, it isn’t open for public use. Book a session and I’ll run it live on your topic, then we’ll check the shortlist in ICPSR’s documentation together.",
+      journey: ["Faculty data request", "Repository scan", "Question-level search", "Dataset found", "Assistant built"],
+      takeaway: "When the same search keeps coming back, turn it into a tool. But a shortlist is only a start: the codebook has the final word."
     }
   ],
 

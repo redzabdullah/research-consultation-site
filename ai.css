@@ -1,0 +1,119 @@
+/* =====================================================================
+   AI for research data (ai.html). Loads after styles.css and guide.css.
+   ===================================================================== */
+
+/* ---------- The discovery ladder ---------- */
+.ladder { display: grid; gap: 1rem; counter-reset: rung; }
+.rung {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.rung__top { display: flex; align-items: flex-start; gap: 0.9rem; }
+.rung__level {
+  flex: none;
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 2.4rem; line-height: 0.9; color: var(--accent); min-width: 2.2rem;
+}
+.rung__kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.rung__title { font-size: 1.3rem; font-weight: 600; line-height: 1.2; margin-top: 0.1rem; }
+.rung__desc { color: var(--ink-2); }
+.rung__pair { display: grid; gap: 0.6rem; }
+.rung__pair p { font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
+.rung__pair b { display: block; font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.1rem; }
+.rung__good b { color: var(--accent); }
+.rung__watch b { color: var(--warn); }
+.rung--top { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 60%, var(--surface)) 0, var(--surface) 8rem); }
+
+/* Rising bar that shows the climb */
+.rung__bar { height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.rung__bar span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+
+@media (min-width: 768px) {
+  .ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .ladder--five .rung:last-child { grid-column: 1 / -1; }
+}
+/* Five rungs side by side on wide screens, rising like steps */
+@media (min-width: 1180px) {
+  #ladder .wrap { max-width: 84rem; }
+  .ladder--five { grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; gap: 1rem; }
+  .ladder--five .rung { display: flex; flex-direction: column; }
+  .ladder--five .rung .gstep__foot { margin-top: auto; }
+  .ladder--five .rung:last-child { grid-column: auto; }
+  .ladder--five .rung { padding: 1.25rem; gap: 0.8rem; }
+  .ladder--five .rung__top { flex-direction: column; gap: 0.35rem; }
+  .ladder--five .rung__title { font-size: 1.2rem; }
+  .ladder--five .rung__desc { font-size: 0.9375rem; line-height: 1.5; }
+  .ladder--five .rung__pair p { font-size: 0.875rem; }
+  .ladder--five .rung:nth-child(1) { margin-top: 6rem; }
+  .ladder--five .rung:nth-child(2) { margin-top: 4.5rem; }
+  .ladder--five .rung:nth-child(3) { margin-top: 3rem; }
+  .ladder--five .rung:nth-child(4) { margin-top: 1.5rem; }
+}
+
+/* ---------- Trustworthy answer: checklist + traps ---------- */
+.trust { display: grid; gap: 1.25rem; }
+.trust__panel {
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.trust__panel h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 1rem; }
+.status { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.status .chip { font-weight: 600; }
+.status .chip--rep { background: var(--accent-soft); color: var(--accent-strong); border-color: transparent; }
+.status .chip--calc { background: var(--surface-2); }
+.status .chip--sup { background: var(--warn-soft); color: var(--warn); border-color: transparent; }
+.status .chip--na { background: var(--bg); color: var(--muted); border-style: dashed; }
+
+.traps { display: grid; gap: 0.75rem; }
+.trap { padding: 0.85rem 1rem; border-radius: var(--radius-sm); background: var(--bg); border-left: 3px solid var(--warn); }
+.trap__name { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
+.trap__text { font-size: 0.9375rem; color: var(--ink-2); line-height: 1.45; margin-top: 0.15rem; }
+
+@media (min-width: 900px) {
+  .trust { grid-template-columns: 1fr 1.25fr; align-items: start; }
+  .traps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Prompt pattern ---------- */
+.prompt {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  max-width: 52rem;
+}
+.prompt mark { background: color-mix(in srgb, var(--highlight) 85%, transparent); color: var(--ink); padding: 0 0.25em; border-radius: 4px; }
+.prompt__label { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.6rem; }
+.prompt__note { margin-top: 0.9rem; max-width: 52rem; font-size: 0.9375rem; color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  .prompt { background: #0b0f0e; color: var(--ink); border: 1px solid var(--line); }
+}
+
+/* ---------- Scoping vs licensed ---------- */
+.boundary { max-width: 60rem; }
+.boundary .gtable td:first-child { font-weight: 400; color: var(--ink-2); }
+.boundary .gtable td:last-child { color: var(--ink); }
+
+.licence {
+  margin-top: 1.5rem; max-width: 60rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--warn-soft);
+  border-left: 3px solid var(--warn);
+}
+.licence__title { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+.licence p + p { margin-top: 0.35rem; color: var(--ink-2); }
