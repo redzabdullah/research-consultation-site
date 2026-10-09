@@ -233,7 +233,9 @@
     card.classList.remove("is-highlighted");
     void card.offsetWidth;
     card.classList.add("is-highlighted");
-    window.setTimeout(function () { card.classList.remove("is-highlighted"); }, 3000);
+    // Restart the timer so an earlier jump to this case can't end the new highlight early.
+    window.clearTimeout(card.highlightTimer);
+    card.highlightTimer = window.setTimeout(function () { card.classList.remove("is-highlighted"); }, 3000);
     $(".case__toggle", card).focus({ preventScroll: true });
     if (history.replaceState) history.replaceState(null, "", "#case-" + id);
   }

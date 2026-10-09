@@ -31,7 +31,7 @@ window.SITE_CONTENT = {
     photo: "",
     initials: "RA",
     // One line for the printable call card
-    pitch: "One-to-one research support for postgraduate researchers, from the first “does this data even exist?” to the final reference check.",
+    pitch: "One-to-one research support for postgraduate researchers, from the first “does this data even exist?” to the final submission.",
     // Your live website address. Update this after you deploy (see README).
     siteUrl: "https://redzuan-research-support.onrender.com"
   },
