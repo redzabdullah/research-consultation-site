@@ -310,16 +310,16 @@ window.SITE_CONTENT = {
       field: "Open financial data & literature discovery",
       duration: "Self-initiated build",
       stages: ["Finding data", "Code & workflows", "Literature search"],
-      tools: ["Python", "APIs", "MCP", "Yahoo Finance", "Alpha Vantage", "OpenAlex", "arXiv", "DOAJ", "SEC EDGAR"],
+      tools: ["Python", "APIs", "MCP", "Yahoo Finance", "Alpha Vantage", "OpenAlex", "arXiv", "DOAJ", "SEC EDGAR", "SGXNet", "ChatGPT / Claude"],
       challenge: "Before choosing a licensed database, I often need a fast first look: a few companies’ prices and accounts from open financial sources, plus what academic research already says about the topic. Doing that by hand meant hopping between websites, copying numbers into spreadsheets and running separate literature searches, with no record of where each figure came from.",
       didLabel: "What I built",
       did: [
-        "An AI connector built on the Model Context Protocol (MCP), so a plain-language question is routed to a specific data operation instead of a generic web search.",
-        "Two open financial-data sources, Yahoo Finance and Alpha Vantage, covering prices, company accounts, ownership snapshots, corporate actions and macro indicators.",
-        "Literature discovery in the same workflow: OpenAlex for published research, arXiv for preprints (always labelled as preprints), and DOAJ to check whether a journal is listed.",
-        "A source audit on every answer: provider, retrieval date, rows returned, row limits and missing fields, with calculated values kept apart from reported ones.",
-        "A confirmation gate. When a field isn’t available, such as executive pay, the agent names the gap, proposes the narrowest authoritative source (SEC filings) and waits for approval before using it.",
-        "Deliberate stress tests: invalid tickers, truncated price histories, missing values that must stay missing rather than become zero, and preprints that must never pass as peer-reviewed."
+        "An AI research agent with a clear division of labour. The AI assistant (ChatGPT or Claude) plans and decides. My connector, built on the Model Context Protocol (MCP), supplies the tools, step-by-step research recipes and the rules it must follow.",
+        "Where the agentic flow happens: ask for a peer comparison, company brief or literature review, and the agent fetches the matching recipe, calls the data tools in sequence, checks each result, and adapts when something is missing.",
+        "Open sources underneath: Yahoo Finance and Alpha Vantage for prices, accounts, corporate actions and macro indicators; OpenAlex, arXiv (always labelled as preprints) and DOAJ for the literature.",
+        "Calculations done in code, not by the AI: margins, ROE and returns are computed by the connector, each traced to the line item and date behind it.",
+        "A source audit and a confirmation gate. Every answer records its provider, date and missing fields; missing values stay missing rather than becoming zero. When a gap appears, the agent names the right official source for that market (SEC filings, SGXNet) and waits for my approval.",
+        "No AI API costs. The connector never calls a paid AI service. Its one AI-assisted step asks the assistant I’m already using to summarise the research; the connector then checks every citation."
       ],
       outcome: "A fast, documented scoping layer. In minutes I can compare companies, pull recent accounts and see the relevant literature side by side, then decide which licensed database the real study needs. It doesn’t replace WRDS, Bloomberg, LSEG, Capital IQ or Scopus; it tells me which one to open.",
       demo: "The open APIs behind it have tight daily limits, so it isn’t open for public use. Book a session and I’ll demo it live, or help you plan an agent of your own.",
