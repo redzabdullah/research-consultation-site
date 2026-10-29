@@ -247,11 +247,15 @@
     if (history.replaceState) history.replaceState(null, "", "#case-" + id);
   }
 
-  $("#themes-list").addEventListener("click", function (e) {
-    var link = e.target.closest("[data-case-link]");
-    if (!link) return;
-    e.preventDefault();
-    goToCase(link.dataset.caseLink, true);
+  ["#themes-list", "#horizon"].forEach(function (sel) {
+    var el = $(sel);
+    if (!el) return;
+    el.addEventListener("click", function (e) {
+      var link = e.target.closest("[data-case-link]");
+      if (!link) return;
+      e.preventDefault();
+      goToCase(link.dataset.caseLink, true);
+    });
   });
 
   /* ---------- Gentle reveal on scroll ---------- */

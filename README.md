@@ -90,6 +90,20 @@ Save a square photo (about 300 × 300 pixels, **under 150 KB**) as
 `assets/photo.jpg`. Then in `content.js` set `photo: "assets/photo.jpg",`.
 For a free way to shrink a photo, use https://squoosh.app.
 
+### Edit the "When to reach out" timeline or schedule
+This section (`id="when"`) is **not** in `content.js`: its words are
+written directly in `index.html`. Search for `<!-- 3b. When to reach out -->`.
+
+- **Milestones**: each one is an `<li class="horizon__step">`. Edit the
+  text inside it. Don't change its `style="--c:…;--r:…"` numbers, which
+  set its position in the timeline.
+- **Case links**: a link to a case looks like
+  `<a class="case-link" href="#case-06" data-case-link="06">Case 06</a>`.
+  Change the number in all three places to point it at a different case.
+- **Schedule table**: it's the `<table>` inside "See the typical programme
+  schedule". If you edit a cell, keep its `data-label="Term 1"` (or
+  Term 2/3). On phones, those labels appear on each stacked row.
+
 ### Change your booking link, email or LinkedIn
 Edit `bookingUrl`, `email` or `linkedin` in `content.js`. Every button and
 link on the home page updates automatically. `linkedin` is your profile
